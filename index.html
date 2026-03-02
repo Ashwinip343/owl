@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cute 3D Owl</title>
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#173a63;
+}
+
+/* Main Container */
+.owl{
+  position:relative;
+  width:280px;
+  height:400px;
+}
+
+/* Shadow */
+.shadow{
+  position:absolute;
+  bottom:45px;
+  left:50%;
+  transform:translateX(-50%);
+  width:200px;
+  height:30px;
+  background:rgba(0,0,0,0.3);
+  border-radius:50%;
+  filter:blur(10px);
+}
+
+/* Branch */
+.branch{
+  position:absolute;
+  bottom:60px;
+  left:-30px;
+  width:340px;
+  height:70px;
+  background:linear-gradient(145deg,#9a5a47,#7e4334);
+  border-radius:60px;
+  box-shadow:inset -10px -10px 20px rgba(0,0,0,0.2);
+}
+
+/* Leaves */
+.leaf{
+  position:absolute;
+  width:55px;
+  height:75px;
+  background:linear-gradient(145deg,#30d18d,#1fa37b);
+  border-radius:50%;
+  box-shadow:inset -5px -5px 10px rgba(0,0,0,0.2);
+}
+
+.leaf.left{
+  bottom:100px;
+  left:-10px;
+  transform:rotate(-25deg);
+}
+
+.leaf.right{
+  bottom:100px;
+  right:-10px;
+  transform:rotate(25deg);
+}
+
+/* Body */
+.body{
+  position:absolute;
+  bottom:100px;
+  width:280px;
+  height:300px;
+  background:linear-gradient(160deg,#6da2d8,#3f6fb2);
+  border-radius:50%;
+  box-shadow:
+    inset -15px -15px 30px rgba(0,0,0,0.25),
+    inset 10px 10px 20px rgba(255,255,255,0.2);
+}
+
+/* Belly */
+.belly{
+  position:absolute;
+  width:200px;
+  height:220px;
+  background:linear-gradient(160deg,#8ec1f1,#4a89d8);
+  border-radius:50%;
+  bottom:110px;
+  left:40px;
+  box-shadow:inset -10px -10px 20px rgba(0,0,0,0.2);
+}
+
+/* Feather dots */
+.belly:after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(0,0,0,0.15) 5px, transparent 6px),
+    radial-gradient(circle at 30% 50%, rgba(0,0,0,0.15) 5px, transparent 6px),
+    radial-gradient(circle at 70% 50%, rgba(0,0,0,0.15) 5px, transparent 6px),
+    radial-gradient(circle at 50% 70%, rgba(0,0,0,0.15) 5px, transparent 6px);
+}
+
+/* Eyes */
+.eye{
+  position:absolute;
+  width:95px;
+  height:95px;
+  background:white;
+  border-radius:50%;
+  top:90px;
+  box-shadow:inset -5px -5px 10px rgba(0,0,0,0.2);
+}
+
+.eye.left{ left:35px; }
+.eye.right{ right:35px; }
+
+.pupil{
+  position:absolute;
+  width:70px;
+  height:70px;
+  background:#111;
+  border-radius:50%;
+  top:12px;
+  left:12px;
+}
+
+.pupil:after{
+  content:"";
+  position:absolute;
+  width:22px;
+  height:22px;
+  background:white;
+  border-radius:50%;
+  top:12px;
+  left:15px;
+}
+
+/* Blush */
+.blush{
+  position:absolute;
+  width:30px;
+  height:20px;
+  background:#f7a1b0;
+  border-radius:50%;
+  top:150px;
+  opacity:0.8;
+}
+
+.blush.left{ left:40px; }
+.blush.right{ right:40px; }
+
+/* Beak */
+.beak{
+  position:absolute;
+  width:0;
+  height:0;
+  border-left:18px solid transparent;
+  border-right:18px solid transparent;
+  border-top:28px solid #ff8a4c;
+  top:150px;
+  left:122px;
+}
+
+/* Eyebrow feathers */
+.brow{
+  position:absolute;
+  width:110px;
+  height:40px;
+  background:linear-gradient(160deg,#6da2d8,#3f6fb2);
+  border-radius:50%;
+  top:70px;
+}
+
+.brow.left{
+  left:20px;
+  transform:rotate(-15deg);
+}
+
+.brow.right{
+  right:20px;
+  transform:rotate(15deg);
+}
+
+/* Wings */
+.wing{
+  position:absolute;
+  width:90px;
+  height:210px;
+  background:linear-gradient(160deg,#5f92c9,#2e5f91);
+  border-radius:50%;
+  top:150px;
+  box-shadow:inset -8px -8px 15px rgba(0,0,0,0.2);
+}
+
+.wing.left{ left:-25px; }
+.wing.right{ right:-25px; }
+
+/* Feet */
+.feet{
+  position:absolute;
+  bottom:75px;
+  left:95px;
+  display:flex;
+  gap:15px;
+}
+
+.toe{
+  width:28px;
+  height:45px;
+  background:linear-gradient(#ff9c5c,#d95e2b);
+  border-radius:50px;
+  box-shadow:inset -5px -5px 10px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<div class="owl">
+
+  <div class="shadow"></div>
+
+  <div class="branch"></div>
+  <div class="leaf left"></div>
+  <div class="leaf right"></div>
+
+  <div class="body"></div>
+  <div class="belly"></div>
+
+  <div class="brow left"></div>
+  <div class="brow right"></div>
+
+  <div class="eye left">
+    <div class="pupil"></div>
+  </div>
+  <div class="eye right">
+    <div class="pupil"></div>
+  </div>
+
+  <div class="blush left"></div>
+  <div class="blush right"></div>
+
+  <div class="beak"></div>
+
+  <div class="wing left"></div>
+  <div class="wing right"></div>
+
+  <div class="feet">
+    <div class="toe"></div>
+    <div class="toe"></div>
+    <div class="toe"></div>
+  </div>
+
+</div>
+
+</body>
+</html>
